@@ -30,7 +30,7 @@ class Node:
         return self.parent == None
     
     def is_from_breadcrumb(self) -> bool:
-        return self.breadcrumb_name != None
+        return self.breadcrumb_name != None or len(self.extras.items()) > 0
     
     def __init__(self, condition: str = None, parent: 'Node' = None, extras: dict[str, any] = {}):
         self.condition = condition
@@ -40,6 +40,8 @@ class Node:
         
     def add_children(self, children: list['Node']):
         self.children.extend(children)
+        for c in children:
+            c.parent = self
 
 
 class TokenCounts(BaseModel):
