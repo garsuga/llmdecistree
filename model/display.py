@@ -18,9 +18,7 @@ def display_tree(root: Node, max_depth=3):
         for child in node.children:
             traverse(child, parent_label=label)
 
-    print("Generating Visual Tree...")
     traverse(root)
-    print("Displayng...")
 
     fig = px.sunburst(
         names=labels,
@@ -30,6 +28,7 @@ def display_tree(root: Node, max_depth=3):
     fig.update_layout(margin=dict(t=10, l=10, r=10, b=10))
     fig.show()
 
+# credit to GPT 4.5 for this function
 def display_lazy_tree(root: Node, max_initial_depth=2):
     out = Output()
     fig = go.FigureWidget()
@@ -78,17 +77,14 @@ def display_lazy_tree(root: Node, max_initial_depth=2):
             clicked_node = id_to_node.get(clicked_id)
 
             if not clicked_node:
-                print("Node not found.")
                 return
 
             # Check if already expanded
             already_loaded = any(p == clicked_id for p in trace.parents)
             if already_loaded:
-                print(f"Node '{clicked_node.condition}' already expanded.")
                 return
 
             if not clicked_node.children:
-                print(f"Node '{clicked_node.condition}' has no children.")
                 return
 
             # Dynamically add one-level deeper
@@ -106,8 +102,6 @@ def display_lazy_tree(root: Node, max_initial_depth=2):
                 fig.data[0].labels += tuple(new_segment['labels'])
                 fig.data[0].parents += tuple(new_segment['parents'])
                 fig.data[0].maxdepth += 1
-
-            print(f"Expanded node '{clicked_node.condition}'.")
 
     fig.data[0].on_click(on_click)
     display(VBox([fig, out]))
