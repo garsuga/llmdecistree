@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Any, Union
 from pydantic import BaseModel, Field
 
 
@@ -45,9 +45,18 @@ class Node:
 
 
 class TokenCounts(BaseModel):
-    prompt: int
-    completion: int
-    total: int
+    prompt: int = 0
+    completion: int = 0
+    total: int = 0
+
+    def __add__(self, other: Any) -> "TokenCounts":
+        if not isinstance(other, TokenCounts):
+            raise TypeError(f"Unsupported operand type(s) for +: 'TokenCounts' and '{type(other).__name__}'")
+        return TokenCounts(
+            prompt=self.prompt + other.prompt,
+            completion=self.completion + other.completion,
+            total=self.total + other.total,
+        )
 
 class CategoryAnswer(BaseModel):
     categories: list[str] = Field(description="A list of categories that do not overlap. Must contain at least two categories.")

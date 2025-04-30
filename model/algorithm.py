@@ -196,7 +196,7 @@ def ask_model_category(node: Node, embeddings: Embeddings, create_llm: Callable[
         
 
     
-def categorize_next(item_description: str, root: Node, create_llm: Callable[[], BaseChatModel]) -> Tuple[Optional[Node], TokenCounts]:
+def categorize_next(item_description: str, nodes: list[Node], create_llm: Callable[[], BaseChatModel]) -> Tuple[Optional[Node], TokenCounts]:
     """Categorizes a description into a child of the given node
     
     Args:
@@ -207,14 +207,14 @@ def categorize_next(item_description: str, root: Node, create_llm: Callable[[], 
     Returns:
         Tuple[Optional[Node], TokenCounts]: a tuple containing the chosen node or `None` if no suitable node was found and the counts of the tokens expended
     """
-    conditions = [n.condition for n in root.children]
-    conditions.append("None")
+    conditions = [n.condition for n in nodes]
+    conditions.append("None of the above")
     
     conditions = [f"{i+1}: {cond}" for i,cond in enumerate(conditions)]
     
     template = """
-    With the given item and categories, determine which of the categories correctly describes the item.
-    Choose only the number of the category which is correct, otherwise choose None from the list.
+    With the given item and categories, determine which of the categories would contain the item.
+    Choose only the number of the category which would contain the item, otherwise choose 'None of the above' from the list.
     
     Categories:
     {categories}
@@ -232,8 +232,8 @@ def categorize_next(item_description: str, root: Node, create_llm: Callable[[], 
     
     choice_node = None
     
-    if choice.category_number - 1 < len(root.children):
-        choice_node = root.children[choice.category_number - 1]
+    if choice.category_number - 1 < len(nodes):
+        choice_node = nodes[choice.category_number - 1]
     
     return choice_node, TokenCounts(prompt=cb.prompt_tokens, completion=cb.completion_tokens, total=cb.total_tokens)
 
@@ -279,7 +279,7 @@ def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_
         # categorize the old children into the new child nodes
         n_categorized: int = 0
         for node in old_children:
-            choice, token_counts = categorize_next(item_description=node.condition, root=root, create_llm=create_llm)
+            choice, token_counts = categorize_next(item_description=node.condition, nodes=[*root.children], create_llm=create_llm)
             n_categorized += 1
             if progress_bars is not None:
                 progress_bars.update_batch_progress(n_categorized)
@@ -390,3 +390,4 @@ def clean_tree(root: Node):
     """
     _correct_parent_refs(root)
     _clean_subtree(root)
+    _correct_parent_refs(root)

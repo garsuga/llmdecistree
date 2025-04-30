@@ -120,6 +120,13 @@ def format_node(node: Node):
     labels = get_node_conditions(node=node)
     return " > ".join(labels)
 
+def format_time(seconds):
+    seconds = int(seconds)
+    days, seconds = divmod(seconds, 86400)
+    hours, seconds = divmod(seconds, 3600)
+    minutes, seconds = divmod(seconds, 60)
+    return f"{days:02}:{hours:02}:{minutes:02}:{seconds:02}"
+
 
 class ProgressBars:
     completion_tokens: int = 0
@@ -171,13 +178,6 @@ class ProgressBars:
         elapsed = time.time() - self.start_time
         rate = (n_leaves) / elapsed if elapsed > 0 else 0
         eta = (self.progress_total.max - (n_leaves)) / rate if rate > 0 else 0
-        def format_time(seconds):
-            seconds = int(seconds)
-            days, seconds = divmod(seconds, 86400)
-            hours, seconds = divmod(seconds, 3600)
-            minutes, seconds = divmod(seconds, 60)
-
-            return f"{days:02}:{hours:02}:{minutes:02}:{seconds:02}"
         return f"{n_leaves}/{self.progress_total.max} | Elapsed: {format_time(elapsed)} | ETA: {format_time(eta)}"
         
     def update_total_progress(self, n_leaves: int):
