@@ -167,6 +167,33 @@
         These do not include descriptions, only the item names shown on Amazon. This was done to make the information especially sparse but I would like to attempt this with descriptions as well in the future.
     </p>
 
+    <h2>Data Cleaning</h2>
+    <p>
+        While one advantage of LLM's is that they are trained on the kind of text that occurs naturally on the internet, there was still cleaning to do, specifically in the labels. The UNSPSC codes came with over 70,000 labels spanning all kinds of products and services but
+        there were many that woud not be used when applied to an Amazon products dataset for classification. In order to make iteration faster, I chose to remove labels that were out of scope:
+        <ul>
+            <li>
+                All Services
+                <p>
+                    Services are not sold on Amazon so they would not benefit this application.
+                </p>
+            </li>
+            <li>
+                All Live / Fresh Plants and Animals
+                <p>
+                    Live plants and animals and fresh plant clippings are not usually present on Amazon so they were removed.
+                </p>
+            </li>
+            <li>
+                Food, Beverage, and Tabacco
+                <p>
+                    While there are some shelf stable foods on Amazon (not to be confused with Amazon Fresh for groceries), these encompassed roughly half of the UNSPSC labels and are uncommon on Amazon so they were removed for the evaluation. These items did not appear in the classifications done below.
+                </p>
+            </li>
+        </ul>
+        After removing out-of-scope or under-utilized labels I was left with around 31,000 labels which made iterations possible in my timeframe.
+    </p>
+
     <h2>Approach</h2>
     <p>
         LLM's are powerful but come with their own issues. One issue is their <a href="https://www.ibm.com/think/topics/context-window">context window</a> which is the amount of tokens that they can hold "in memory" at once. This is an issue when dealing with very long prompts. Another issue is <a href="https://arxiv.org/abs/2407.01437">the needle in the hackstack problem</a>.
@@ -258,6 +285,12 @@
         <img src="images/classification.svg" alt="Classification">
     </div>
 
+    <h2>Tree Visualization</h2>
+    <p>This is a partial visualization of the tree after the algorithm above. I cannot visualize much of the original tree due to the number of children at each level. Made using Plotly.</p>
+    <div class="svg-container">
+        <img src="images/tree.png" style="width: 100%;"/>
+    </div>
+
     <h2>Potential Benefits</h2>
     <p>The statements below assume competitive cost and reliability with existing approaches.</p>
     <p>
@@ -314,7 +347,8 @@
         When working on this model I wanted to pay close attention to time and compute costs. LLM's have become much cheaper to run in recent years and I decided on using a smaller model for this to further optimize costs and speed.
     </p>
     <p>
-        I used Qwen 2.5 14B (14 billion parameters) for the tree creation and Qwen 2.5 32B for the classification and adjustments.
+        I used Qwen 2.5 14B (14 billion parameters) for the tree creation and Qwen 2.5 32B for the classification and adjustments. I tried using LLama 3 14B originally but I found it was not making the useful categories during tree creation so I chose the newer Qwen 2.5. 
+        The models were run on local hardware using Ollama and interacted with through LangChain.
     </p>
     <p>
         <b>Tree Creation</b>
@@ -495,10 +529,10 @@
                 Intent is often needed; is a tool on Amazon "professional", "commercial", or "consumer"?
             </li>
             <li>
-                Deeper understanding of the UNSPSC labels is needed than what is provided in the dataset; are silver earrings with cubic zirconium "Fine Jewlery" or "Imitation Jewlery"
+                Deeper understanding of the UNSPSC labels is needed than what is provided in the dataset; are silver earrings with cubic zirconium "Fine Jewlery" or "Imitation Jewlery"?
             </li>
             <li>
-                Products on Amazon are not always individual items; a set of wrenches and matching fasteners cannot be labeled with a single class, it is a kit which required a more detailed approach
+                Products on Amazon are not always individual items; a set of wrenches and matching fasteners cannot be labeled with a single class, it is a kit which requires a more detailed approach.
             </li>
         </ul>
         UNSPSC is intended for businesses to label things they produce or procure, where intent is obvious. With a website like Amazon that caters to businesses and individuals indiscriminately, it is challenging or impossible to find the intention behind the product.
