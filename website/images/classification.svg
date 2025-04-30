@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="179.689 -16.084 551.14 1051.144" xmlns:bx="https://boxy-svg.com">
+  <rect x="193.144" y="333.27" width="526.617" height="683.319" style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-dasharray: 2px;"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="450.365" cy="512.527" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="510.88" cy="578.494" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="364.226" cy="654.82" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="423.378" cy="656.455" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="477.623" cy="655.91" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="540.048" cy="657.001" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(255, 0, 0);" d="M 467.538 527.519 L 501.339 558.594"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="450.366" cy="581.189" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill;" cx="387.124" cy="581.735" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 450.092 533.758 L 450.092 559.382"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 434.282 527.216 L 388.486 559.382"/>
+  <rect x="340.277" y="127.804" width="222.707" height="118.577" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 339.732 143.341 L 563.257 143.341"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 340.549 160.787 L 563.256 160.787"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 340.277 177.687 L 562.439 177.687"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 340.277 193.498 L 563.802 193.498"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 341.094 210.944 L 563.801 210.944"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 340.822 227.844 L 562.984 227.844"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 393.16 127.531 L 393.16 246.381"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 456.401 128.076 L 455.583 246.653"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 516.098 127.804 L 516.371 246.653"/>
+  <rect x="340.278" y="127.289" width="222.706" height="15.81" style="stroke: rgb(0, 0, 0); fill: rgb(141, 141, 141);"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="371.814" y="18.756">Classification</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre;" x="364.916" y="61.734">Start With Dataset &amp; Tree</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="373.221" y="424.724">Choose The Next Node</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="590.977" y="86.086" transform="matrix(1, 0, 0, 1, -139.046677, 360.560791)">Use an LLM to ask which<tspan x="590.9769897460938" dy="1em">​</tspan>next category is correct<tspan x="590.9769897460938" dy="1em">​</tspan>(or if none are correct)</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="252.964" y="92.961" transform="matrix(1, 0, 0, 1, 202.619186, -5.743734)">For classification, a finished tree<tspan x="252.96400451660156" dy="1em">​</tspan>and the items to classify are needed</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; text-anchor: middle;" x="415.429" y="735.518" transform="matrix(1, 0, 0, 1, 35.489326, -381.652496)">Starting At The Root,<tspan x="415.4289855957031" dy="1em">​</tspan>Repeat For Every Node</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="438.62" y="618.671">...</text>
+  <path d="M 338.34 355.961 L 343.942 366.638 L 332.738 366.638 L 338.34 355.961 Z" bx:shape="triangle 332.738 355.961 11.204 10.677 0.5 0 1@6c2956a6" style="stroke: rgb(255, 0, 0); fill: rgb(255, 0, 0); transform-origin: 338.339px 361.3px 0px;" transform="matrix(-0.695285, 0.718734, -0.718734, -0.695285, 159.170856, 193.624011)"/>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 452.524px 291.294px 0px;" d="M 452.331 260.081 L 452.417 300.97"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 323.642px 133.485px 0px;" transform="matrix(-1, -0.00053, 0.00053, -1, 128.881237, 157.810066)"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre;" x="405.612" y="385.837">Until a leaf is chosen</text>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px;" d="M 452.197 701.847 L 453.042 1009.06"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="207.994" y="748.343">Repeat The Process Above</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="590.977" y="86.086" transform="matrix(1, 0, 0, 1, -291.042664, 684.564087)">Use the chosen node as<tspan x="590.9769897460938" dy="1em">​</tspan>the root of the next subtree and repeat</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="504.784" y="747.131">Return To The Previous Node</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="590.977" y="86.086" transform="matrix(1, 0, 0, 1, 15.089124, 679.453369)">Repeat the process with the previous<tspan x="590.9769897460938" dy="1em">​</tspan>choice masked away so that it is not shown<tspan x="590.9769897460938" dy="1em">​</tspan>to the LLM again. If this happens at the tree<tspan x="590.9769897460938" dy="1em">​</tspan>root then the classification cannot be determined<tspan x="590.9769897460938" dy="1em">​</tspan>and no choice is made</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="222.456" y="711.699">If Next Node Is Chosen</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="535.604" y="710.778">If Nothing Is Chosen</text>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="600.802" cy="843.404" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgba(255, 0, 0, 0.35); stroke: rgb(255, 0, 0); stroke-dasharray: 2px;" cx="661.317" cy="909.371" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="514.663" cy="985.699" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="573.815" cy="987.329" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="628.06" cy="986.788" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="690.485" cy="987.878" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(255, 0, 0);" d="M 617.975 858.396 L 651.776 889.471"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="600.803" cy="912.066" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill;" cx="537.561" cy="912.612" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 600.529 864.635 L 600.529 890.259"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 584.719 858.093 L 538.923 890.259"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="589.057" y="949.548">...</text>
+  <path d="M 338.34 355.961 L 343.942 366.638 L 332.738 366.638 L 338.34 355.961 Z" bx:shape="triangle 332.738 355.961 11.204 10.677 0.5 0 1@6c2956a6" style="stroke: rgb(255, 0, 0); fill: rgb(255, 0, 0); transform-origin: 338.339px 361.3px 0px;" transform="matrix(0.720265, -0.693699, 0.693699, 0.720265, 282.659482, 500.312489)"/>
+</svg>

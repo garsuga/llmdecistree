@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Trees Using LLM's</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #e4e4e9;
+            color: #333;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .svg-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #e4e4e9;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Decision Trees Using LLM's</h1>
+    <p>Evaluating a novel approach to product classification</p>
+</header>
+
+<section>
+    <h2>Background</h2>
+    <p>
+        For this project, I wanted to explore ways to leverage LLM's to handle classification problems in a novel way.
+    </p>
+    <p><b>Challenges with existing approaches</b></p>
+    <p>
+        To explore places where existing approaches to classification have downsides, I chose to classify products for the reasons below.
+        I will keep my exploration of existing approaches intentionally generic because there are many different ways to approach this problem.
+        There are a few challenges involved with product classification models that make them difficult to acheive feasibly:
+        <ul>
+            <li>
+                <b>Requirement of labeled training data</b>
+                <p>
+                    Labeling datasets for product classifications come with some difficulties. To name a couple...
+                    <ul>
+                        <li>
+                            <b>Volatility</b>
+                            <p>
+                                Many industries are volatile and have need new classes to be added regularly which would require new labeled data to accomodate them and retraining the model.
+                            </p>
+                        </li>
+                        <li>
+                            <b>Sparsity</b>
+                            <p>
+                                There is no guarantee that datasets will have enough data for each class to properly train a model. This can only be fixed by labeling more and more data until the classes have enough examples.
+                            </p>
+                        </li>
+                        <li>
+                            <b>Availability</b>
+                            <p>
+                                Many schemas existing for product classification and standardization. For this project I used UNSPSC codes but there are many other private and public sets of labels to consider.
+                                Data that has been tagged for training is difficult to obtain, especially for specific schemas. A quick or lengthy Google search will show that data like this is rarely publicly available if at all.
+                                This means that companies and individuals will need to invest in maintaining their own training data across industry changes.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    With the volatility of the types of products being sold world-wide or within companies training datasets will require regular maintenance. If not enough examples of a new or existing classification are found additional time must be spent expanding or augmenting the training data.
+                    This adds cost to the process of obtaining and maintaining effective training data.
+                </p>
+            </li>
+            <li>
+                <b>Readability and Reliability</b>
+                <p>
+                    How do you actually save money automating product classification? Like many other areas it can be difficult to trust the ouputs from a model when liability is involved.
+                    If you have a person checking the results, did you save enough time to justify the costs of data aquisition and model training? Can you justify the decision of the model when a mistake is made?
+                </p>
+                <p>
+                    The issues above are not unique to product classification, there are few models a person can look at and understand the thinking behind.
+                </p>
+            </li>
+            <li>
+                <b>Updates</b>
+                <p>
+                    Business and personal needs change over time as well as the industry itself. For example, if gift cards were invented today they would likely not fit in any existing classifications. Selling plastic cards worth a variable amount of money at a specific place is a relatively unique product. 
+                    How can you update a model to include a new class that fits these?
+                </p>
+                <p>
+                    Perhaps you would search the internet or an existing product database to discover new examples of these items. Or perhaps you would create synthetic data that fits these new items. Then, if a trained model was being used, it would need to be retrained. 
+                    The same process would likely be needed if a new name was being used to describe existing products; for example, fidget toys which would have previously been just toys.
+                </p>
+                <p>
+                    If there is a requirement to train using new data and evaluate, this would require a period of time where this new class would exist in the real world and not be able to be classified. In addition, finding or creating data, training a model, and evaluating that model can be costly and labor-intensive.
+                </p>
+            </li>
+        </ul>
+    </p>
+
+    <h2>Objectives</h2>
+    <p>I work with large language models professionally and I thought they might be a good fit for this area.</p>
+    <p>
+        LLM's are not just new and user friendly for the average person. They are novel for a few reasons.
+        <ul>
+            <li>
+                Through prompting techniques like tool calling and structured outputs, insights from an LLM can be adapted quickly and retrieved in a standardized way.
+            </li>
+            <li>
+                With retrieval augmented generation (RAG), web search tools, and similar methods, the training knowledge of an LLM can be supplemented without retraining.
+            </li>
+            <li>
+                Responses from an LLM can be specialized to many different problems and objectives by changing the input.
+            </li>
+            <li>
+                LLM's naturally understand text in a variety of languages, even when combined in a single input and without supplying additional information.
+            </li>
+            <li>
+                Because LLM's are models that accept and create natural language text, they can be asked to justify answers and perhaps follow existing human processes.
+            </li>
+        </ul>
+
+        <p>
+            For these reasons, I suspected that using LLM's for product classification would allow me to take an approach that avoided some of the issues above.
+        </p>
+
+        <p>
+            In this project I wanted to create and evaluate the feasibility of an algorithm that would allow an LLM to follow a human-like process of product classification in the absence of labeled training data.
+        </p>
+    </p>
+
+    <h2>Data</h2>
+    <p>
+        For the labels, I chose the <a href="https://www.ungm.org/public/unspsc">UNSPSC codes</a> available <a href="https://data.ok.gov/dataset/unspsc-codes">here</a>.
+        There are over 70,000 labels divided into a 4 level heirarchy.
+    </p>
+    <p>
+        For the items to classify, I chose some Amazon products available on <a href="https://www.kaggle.com/datasets/asaniczka/amazon-products-dataset-2023-1-4m-products">Kaggle</a>.
+        These do not include descriptions, only the item names shown on Amazon. This was done to make the information especially sparse but I would like to attempt this with descriptions as well in the future.
+    </p>
+
+    <h2>Approach</h2>
+    <p>
+        LLM's are powerful but come with their own issues. One issue is their <a href="https://www.ibm.com/think/topics/context-window">context window</a> which is the amount of tokens that they can hold "in memory" at once. This is an issue when dealing with very long prompts. Another issue is <a href="https://arxiv.org/abs/2407.01437">the needle in the hackstack problem</a>.
+        This, put simply, is the difficulty LLM's face when trying to find a single piece of information in a very long prompt. For a classification problem with tens of thousands of labels to check, both of these are especially relevant.
+    </p>
+    <p>
+        I have worked on product classification workflows professionally and I wanted to try an approach that resembles a simple human process.
+    </p>
+    <p>
+        To start, I imagined a human and a list of classifications. Like many schemas for classification, I chose one that had tens of thousands of possible labels, the UNSPSC. It would be challenging to look through this many labels manually so they would likely be broken up into a number of levels.
+        Rather than jumping straight to "Men's Socks" in tens of thousands of possibilities, it would be simpler to go through a few larger categories first; for example, "Clothes and Apparel" -> "Men's Clothing" -> "Footwear" -> "Men's Socks".
+    </p>
+    <p>
+        From this I decided to create a "decision tree" that would be traversed node by node by asking the LLM to choose its next category each time. The specifics of the algorithm are shown below. Code is available on my <a href="https://github.com/garsuga/llmdecistree">Github repository</a>.
+    </p>
+
+    <h2>Algorithm</h2>
+    <p>Two algorithms were created. One to create and prepare the decision tree and another to perform the classifications.</p>
+    <p>
+        <b>Tree Creation</b>
+        <p>
+            Using the labels only, create a basic tree representing the data.
+            <ul>
+                <li>
+                    Create a leaf node for every label.
+                </li>
+                <li>
+                    If a heirarchy already exists within the labels dataset (they do in the UNSPSC codes), then create parent nodes according to each level.
+                </li>
+            </ul>
+        </p>
+        <p>
+            For each node, starting with the root as the current node:
+            <ul>
+                <li>
+                    If the number of children in the current node is less than the maximum specified, skip the other steps and repeat the process for each of its children.
+                </li>
+                <li>
+                    Sample an relatively even distribution of the children using embeddings, a vector store, and k-means clustering. Choose a representative category from N clusters to make N representatives.
+                </li>
+                <li>
+                    Using the sample of the children and the lineage of the current node, ask the LLM to create new categories to divide existing ones.
+                </li>
+                <li>
+                    Set aside the existing children of the current node and add the new children in their place.
+                </li>
+                <li>
+                    For each of the previous children, categorize them into the set of new children by asking the LLM to choose the appropriate one. Set aside any old children that do not match any of the new options.
+                </li>
+                <li>
+                    Add each of the old children that fit a new category as one of the children of the new category. For any that were unable to be moved, parent them to the current node again.
+                </li>
+                <li>
+                    If the number of nodes is now less than or equal to the maximum specified, continue by setting each of the children as the next node. Otherwise repeat the process for the current node.
+                </li>
+            </ul>
+        </p>
+        <b>Classification</b>
+        <p>
+            Using a tree created with the algorithm above and the set of items to classify, perform classifications for each item using the following process:
+            <p>
+                For each node, starting with the root as the current node:
+                <ul>
+                    <li>
+                        Provide the list of children to the model and ask it to determine the next suitable category or to specify that none are suitable.
+                    </li>
+                    <li>
+                        If the next category was chosen, treat that node as the current node and repeat this process. If the chosen node is a leaf then the classification is complete.
+                    </li>
+                    <li>
+                        If the next category was not chosen, return to the parent of the current node and hide the current node from the list of children for this process so that it may not be explored again.
+                    </li>
+                    <li>
+                        If the process would return to the parent but the current node is the root of the tree, the classification has failed and no label will be provided for the item.
+                    </li>
+                </ul>
+            </p>
+        </p>
+    </p>
+
+    <h2>Algorithm Visualizations</h2>
+    <div class="svg-container">
+        <!-- Insert your large SVG here -->
+        <img src="images/tree_creation.svg" alt="Tree Creation">
+    </div>
+
+    <div class="svg-container">
+        <!-- Insert another large SVG here -->
+        <img src="images/classification.svg" alt="Classification">
+    </div>
+
+    <h2>Potential Benefits</h2>
+    <p>The statements below assume competitive cost and reliability with existing approaches.</p>
+    <p>
+        <ul>
+            <li>
+                Building the tree does not require a labeled set of products to train with.
+            </li>
+            <li>
+                Classifications can be traced through a number of category determinations and prompts are human-readable.
+            </li>
+            <li>
+                The tree is stored in a standard object-oriented format and can be modified manually as required. New branches and leaves can be added or changed and, in the presence of a user interface, this process can be done by industry specialists rather than data scientists.
+            </li>
+            <li>
+                The tree can be manually checked over by industry specialists.
+            </li>
+        </ul>
+    </p>
+
+    <h2>Potential Challenges</h2>
+    <p>The statements below assume competitive cost and reliability with existing approaches.</p>
+    <p>
+        <ul>
+            <li>
+                Evaluation requires manually labeling data or having labeled products. However, it may not require as many examples as training would.
+            </li>
+            <li>
+                Classifications will likely be more expensive and slow than an approach like a deep learning model.
+            </li>
+            <li>
+                LLM results can be inconsistent, even for the same item during multiple classifications due to randomness in the model (<a href="https://www.ibm.com/think/topics/llm-temperature">temperature</a>).
+            </li>
+        </ul>
+    </p>
+
+    <h2>Further Adjustments</h2>
+    <p>After running a few tests and seeing the initial performance and ability to successfully provide a classification, I realized there was a need for additional improvements beyond the algorithm above.</p>
+    <p>The improvement I chose to try is difficult to visualize so I will explain it below.</p>
+    <p>
+        With the algorithm above, the LLM knows where it has been but not where it is going as categories get more specific. Due to the limitations above I calculated each new category following a top-down process only looking one level down the tree at a time.
+        The model was shown the previous categories and asked to create new categories that would divide the items among those that satisfy the previous categories. It was shown a sample of the categories it would be dividing as a guide but encouraged to think mainly of the parent category. The exact prompt can be found on GitHub.
+    </p>
+    <p>
+        Because of this top-down approach, the newly created categories were often left empty after the old categories were classified into them and were otherwise too broad or inaccurately described their contents. I attempted to find a way to aleviate this by having the model take another pass from the bottom up.
+        It would work as a depth-first recursive call that would traverse the tree downward first and then attempt to pick a new category at each non-leaf node as the recursive tree resolved upward. Since at this point the number of children had already been reduced to the desired amount for each node, it was possible
+        to show the model the entire set of child nodes for a given node. The results of the tree with and without this are shown below.
+    </p>
+    <p>
+        Additionally, product names are complex and full of branding and industry keywords. To prevent misinterpretation, I asked the model to provide a simplified name from the existing one more suitable for classification.
+    </p>
+
+    <h2>Performance / Cost</h2>
+    <p>
+        When working on this model I wanted to pay close attention to time and compute costs. LLM's have become much cheaper to run in recent years and I decided on using a smaller model for this to further optimize costs and speed.
+    </p>
+    <p>
+        I used Qwen 2.5 14B (14 billion parameters) for the tree creation and Qwen 2.5 32B for the classification and adjustments.
+    </p>
+    <p>
+        <b>Tree Creation</b>
+        <ul>
+            <li>
+                Total Tokens: 6 million
+            </li>
+            <li>
+                Prompt Tokens (Input): 5.4 million
+            </li>
+            <li>
+                Completion Tokens (Output): 0.6 million
+            </li>
+            <li>
+                Time: 5 hours
+            </li>
+        </ul>
+        <p>
+            Qwen is difficult to calculate costs for since it is not as common on cloud platforms. I will use GPT 4o-mini and LLama 70B as a rough estimate due to the small size of Qwen.
+        </p>
+        <p>
+            Token Cost: $1.17 - $4.26 depending on hosting details
+        </p>
+        <p>
+            While the cost is a rough estimation it mainly shows that the compute costs of running the LLM are negligible.
+        </p>
+
+        <b>Classification</b>
+        <p>
+            For the sake of time, 100 items were classified and checked manually for the normal and adjusted tree.
+        </p>
+        <table>
+            <tr>
+                <th>
+                    Tree
+                </th>
+                <th>
+                    Total Tokens
+                </th>
+                <th>
+                    Prompt Tokens (Input)
+                </th>
+                <th>
+                    Completion Tokens (Output)
+                </th>
+                <th>
+                    Time
+                </th>
+                <th>
+                    Time Per Item
+                </th>
+                <th>
+                    Token Cost
+                </th>
+                <th>
+                    Token Cost Per Item
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Standard
+                </td>
+                <td>
+                    237,000
+                </td>
+                <td>
+                    223,000
+                </td>
+                <td>
+                    14,000
+                </td>
+                <td>
+                    25 min
+                </td>
+                <td>
+                    15.3 sec
+                </td>
+                <td>
+                    $0.04 - $0.18
+                </td>
+                <td>
+                    $0.0004 - $0.0018
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Adjusted
+                </td>
+                <td>
+                    212,000
+                </td>
+                <td>
+                    199,500
+                </td>
+                <td>
+                    12,500
+                </td>
+                <td>
+                    21 min
+                </td>
+                <td>
+                    13 sec
+                </td>
+                <td>
+                    $0.04 - $0.15
+                </td>
+                <td>
+                    $0.0004 - $0.0015
+                </td>
+            </tr>
+        </table>
+        <p>
+            The cost was determined the same way as above using similar models as analogs.
+        </p>
+    </p>
+
+    <h2>Classification Results / Evaluation</h2>
+    <p>
+        In order to validate the results, I had to manually check each classification. Due to the long time it takes to test changes to the algorithm I could only manually check a sample of 100 items with the standard and adjusted tree. 
+        I would like to expand this in the future but with the current results it is not necessary for an initial evaluation. See below.
+    </p>
+    <p>
+        <table>
+            <tr>
+                <th>
+                    Tree
+                </th>
+                <th>
+                    Percent Correct*
+                </th>
+                <th>
+                    Percent Incorrect*
+                </th>
+                <th>
+                    Percent Not Classified
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Standard
+                </td>
+                <td>
+                    56%
+                </td>
+                <td>
+                    15%
+                </td>
+                <td>
+                    29%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Adjusted
+                </td>
+                <td>
+                    49%
+                </td>
+                <td>
+                    18%
+                </td>
+                <td>
+                    33%
+                </td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        The results show there are two major issues. The accuracy is quite poor and the number of items that could not be classified is much higher than it would need to be to be considered reliable.
+    </p>
+    <p>
+        Determining accuracy, even for 100 items was full of issues. Although UNSPSC codes are used for general product classification, there were many scenarios they did not work well for classifying Amazon products.
+        <ul>
+            <li>
+                Some results were ambiguous; for example, placing a backpack into "Backpacks" or "Personal Luggage" which exist in different heirarchies.
+            </li>
+            <li>
+                Intent is often needed; is a tool on Amazon "professional", "commercial", or "consumer"?
+            </li>
+            <li>
+                Deeper understanding of the UNSPSC labels is needed than what is provided in the dataset; are silver earrings with cubic zirconium "Fine Jewlery" or "Imitation Jewlery"
+            </li>
+            <li>
+                Products on Amazon are not always individual items; a set of wrenches and matching fasteners cannot be labeled with a single class, it is a kit which required a more detailed approach
+            </li>
+        </ul>
+        UNSPSC is intended for businesses to label things they produce or procure, where intent is obvious. With a website like Amazon that caters to businesses and individuals indiscriminately, it is challenging or impossible to find the intention behind the product.
+        In many scenarios including the examples above, the two trees chose different classifications that both seemed equally correct.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        While the results for this are not ready for real world application, I would like to pursue this further to dive into the challenges and identify more solutions to the implementation issues above. Due to challenges matching the labels to the chosen data, even manually, it was difficult to evaluate objectively.
+        In regards to my objective, the algorithm listed above is not feasible and cannot be used as a replacement for existing solutions.
+    </p>
+</section>
+
+<footer>
+    <p>2025 Garret Sugarbaker - Capstone Project - LLM Decision Trees For Classification</p>
+</footer>
+
+</body>
+</html>

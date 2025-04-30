@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="138.851 -16.084 632.266 825.666" xmlns:bx="https://boxy-svg.com">
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="604.335" cy="160.322" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="664.85" cy="226.289" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="518.196" cy="302.615" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="577.348" cy="304.25" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="631.593" cy="303.705" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="694.018" cy="304.796" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 621.508 175.314 L 655.309 206.389"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 647.131 237.738 L 531.281 285.441"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 651.767 243.734 L 581.437 282.715"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); transform-origin: 649.041px 265.268px 0px;" d="M 637.592 283.533 L 660.489 247.006" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 676.026 246.188 L 687.748 284.35"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px;" cx="604.336" cy="228.984" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px;" cx="541.094" cy="229.53" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 604.062 181.553 L 604.062 207.177"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 588.252 175.011 L 542.456 207.177"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="283.358" cy="540.948" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="343.873" cy="606.915" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="369.224" cy="747.844" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="310.617" cy="747.571" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="196.128" cy="744.846" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="254.192" cy="746.481" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 300.531 555.94 L 334.332 587.015"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px;" cx="283.359" cy="609.61" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px;" cx="220.117" cy="610.156" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 283.085 562.179 L 283.085 587.803"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 267.275 555.637 L 221.479 587.803"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745);" cx="241.243" cy="674.608" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745);" cx="322.749" cy="677.334" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; transform-origin: 281.587px 679.106px 0px;" d="M 281.586 710.593 L 281.586 647.624" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
+  <rect x="169.006" y="715.497" width="227.341" height="62.696" style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-dasharray: 2px;"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 327.382 620.909 L 244.514 653.074"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 341.557 627.996 C 341.557 627.996 324.929 655.8 324.929 655.255"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="620.825" cy="547.583" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="681.34" cy="613.55" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="717.595" cy="749.845" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="661.169" cy="750.39" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="535.231" cy="750.118" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36);" cx="602.563" cy="748.482" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 637.998 562.575 L 671.799 593.65"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px;" cx="620.826" cy="616.245" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px;" cx="557.584" cy="616.791" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 620.552 568.814 L 620.552 594.438"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 604.742 562.272 L 558.946 594.438"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745);" cx="578.71" cy="681.243" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745);" cx="660.216" cy="683.969" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 664.849 627.544 L 581.981 659.709"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 679.024 634.631 C 679.024 634.631 662.396 662.435 662.396 661.89"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 565.353 698.78 L 541.365 729.038"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 661.305 705.595 L 661.305 727.675"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 644.95 699.053 L 602.698 726.584"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 677.661 697.962 L 715.824 727.947"/>
+  <rect x="178.819" y="137.091" width="222.707" height="118.577" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 178.274 152.628 L 401.799 152.628"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 179.091 170.074 L 401.798 170.074"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 178.819 186.974 L 400.981 186.974"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 178.819 202.785 L 402.344 202.785"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 179.636 220.231 L 402.343 220.231"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 179.364 237.131 L 401.526 237.131"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 231.702 136.818 L 231.702 255.668"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 294.943 137.363 L 294.125 255.94"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 354.64 137.091 L 354.913 255.94"/>
+  <rect x="178.82" y="136.576" width="222.706" height="15.81" style="stroke: rgb(0, 0, 0); fill: rgb(141, 141, 141);"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="371.814" y="18.756">Tree Creation</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre;" x="226.251" y="71.971">Start With Dataset</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="527.191" y="72.519">Create Tree From Data</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="212.62" y="462.079">Split Up Child Nodes</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre;" x="523.92" y="461.867">Re-Classify Previous Children</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="249.693" y="372.73" transform="matrix(1, 0, 0, 1, 35.436829, 113.337158)">Whenever a node has <tspan x="249.6929931640625" dy="1em">​</tspan>too many children, use an LLM to create <tspan x="249.6929931640625" dy="1em">​</tspan>new child nodes that will separate them</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="553.905" y="368.975" transform="matrix(1, 0, 0, 1, 67.057434, 116.941536)">Using the same process as classification,<tspan x="553.905029296875" dy="1em">​</tspan>use an LLM to determine which of the new children<tspan x="553.905029296875" dy="1em">​</tspan>the old children now belong beneath<tspan x="553.905029296875" dy="1em">​</tspan></text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="590.977" y="86.086" transform="matrix(1, 0, 0, 1, 17.173197, 7.905132)">Use any existing heirarchy levels<tspan x="590.9769897460938" dy="1em">​</tspan>in the data to fill in branches. The classifications<tspan x="590.9769897460938" dy="1em">​</tspan>will be the leaf nodes</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="252.964" y="92.961" transform="matrix(1, 0, 0, 1, 41.161232, 3.54368)">For this process only the set<tspan x="252.96400451660156" dy="1em">​</tspan>of labels is needed, not the data<tspan x="252.96400451660156" dy="1em">​</tspan>to be classified</text>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131);" d="M 425.787 215.293 L 466.675 214.748"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 323.634px 112.769px 0px;" transform="matrix(-0.000303, 1, -1, -0.000303, 154.081795, 101.980108)"/>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgba(131, 131, 131, 0);" d="M 428.103 628.238 L 468.991 627.693"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 323.634px 112.769px 0px;" transform="matrix(-0.000303, 1, -1, -0.000303, 156.397702, 514.925209)"/>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 464.496px 338.081px 0px;" d="M 433.283 338.625 L 474.171 338.08" transform="matrix(-0.696745, 0.717319, -0.717319, -0.696745, 0, 0)"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 323.64px 133.486px 0px;" transform="matrix(-0.717108, -0.696962, 0.696962, -0.717108, 140.856352, 204.595427)"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; text-anchor: middle;" x="415.429" y="735.518" transform="matrix(1, 0, 0, 1, 32.165741, -337.588257)">Starting At The Root,<tspan x="415.4289855957031" dy="1em">​</tspan>Repeat For Every Node</text>
+  <rect x="151.015" y="375.577" width="607.061" height="419.79" style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 10px;"/>
+</svg>
