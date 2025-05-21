@@ -59,7 +59,9 @@ class TokenCounts(BaseModel):
         )
 
 class CategoryAnswer(BaseModel):
+    reasoning: str = Field(description="Reasoning on your choice.")
     categories: list[str] = Field(description="A list of categories that do not overlap. Must contain at least two categories.")
     
 class CategoryChoice(BaseModel):
+    reasoning: str = Field(description="Reasoning on the choice you made.")
     category_number: int = Field(description="The number of the category chosen according to the numbers in the list.")

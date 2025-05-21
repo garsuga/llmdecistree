@@ -32,10 +32,9 @@ def _create_partial_tree_from_breadcrumb(df: pd.DataFrame, parent: Node, idx: in
         nodes.append(node)
     return nodes
         
-        
     
     
-def create_tree_from_breadcrumbs(df: pd.DataFrame, breadcrumb_cols: list[str], extra_cols_map: dict[str, list[str]] = None) -> Node:
+def create_tree_from_breadcrumbs(df: pd.DataFrame, breadcrumb_cols: list[str], extra_cols_map: dict[str, list[str]] = None, root_node_name: str = "All Products") -> Node:
     """_Create a tree from breadcrumbs left in the dataset. Suitable for datasets with an existing heirarchy. `breadcrumb_cols` is an ordered list of columns that represent heirarchical levels. `extra_cols_map` contains extra columns to store in `Node.extras` for each breadcrumb if applicable._
 
     
@@ -45,10 +44,24 @@ def create_tree_from_breadcrumbs(df: pd.DataFrame, breadcrumb_cols: list[str], e
         extra_cols_map (dict[str, list[str]], optional): list of extra columns to enrich nodes for each breadcrumb column. Defaults to None.
     """
     
-    root = Node()
+    root = Node(condition=root_node_name)
     root.add_children(_create_partial_tree_from_breadcrumb(df, parent=root, idx=0, breadcrumb_cols=breadcrumb_cols, extra_cols_map=extra_cols_map))
     return root
 
+def create_tree_from_categories(df: pd.DataFrame, condition_col: str, extra_cols: list[str], root_node_name: str = "All Products") -> Node:
+    root = Node(condition=root_node_name)
+    children = []
+    
+    for i, row in df.iterrows():
+        cond = row[condition_col]
+        extras = {extra_col: row[extra_col] for extra_col in extra_cols}
+        node = Node(condition=cond, parent=root, extras=extras)
+        node.breadcrumb_name = cond
+        children.append(node)
+        
+    root.add_children(children)
+    
+    return root
 
 def _check_branches(nodes: list[Node]) -> int:
     """Gathers information about the child counts of nodes within the given subtree.
@@ -143,7 +156,7 @@ def sample_from_embeddings(vectorstore: InMemoryVectorStore, samples: int = 10) 
 
 
 
-def ask_model_category(node: Node, embeddings: Embeddings, create_llm: Callable[[], BaseChatModel]) -> Tuple[CategoryAnswer, TokenCounts]:
+def ask_model_category(node: Node, embeddings: Embeddings, create_llm: Callable[[], BaseChatModel], previous_cats_for_retry: list[str] = []) -> Tuple[CategoryAnswer, TokenCounts]:
     """Prompts an LLM to create new categories for the children of the given node
     
     Args:
@@ -169,6 +182,8 @@ def ask_model_category(node: Node, embeddings: Embeddings, create_llm: Callable[
     
     Sample of items that should fit into the new categories:
     {conditions}
+    
+    {previous_cats_str}
 
     The items in the full dataset cover the scope of: {scope}
 
@@ -182,11 +197,21 @@ def ask_model_category(node: Node, embeddings: Embeddings, create_llm: Callable[
     
     Do not create new categories that are ambigious with, duplicates of, or direct inverses of other categories listed above.
     """.strip()
-    prev_condition = "All"
+    
+    previous_cats_str = ""
+    if len(previous_cats_for_retry) > 0:
+        previous_cats_str = f"""
+            Previous categories you created for this parent category (provide more categories for the items above):
+            {'\n '.join(previous_cats_for_retry)}
+        """.strip()
+    
+    prev_condition = "All Products"
     if node.parent is not None:
         prev_condition = node.parent.condition
     prompt = ChatPromptTemplate.from_template(template)
-    prompt = prompt.format(conditions="* " + "\n* ".join(selected_cats), prev_conditions="* " + "\n* ".join(get_node_conditions(node)), scope="Products across all industries", prev_condition=prev_condition)
+    prompt = prompt.format(conditions="\n ".join(selected_cats), prev_conditions="\n ".join(get_node_conditions(node)), scope="Products across all industries", prev_condition=prev_condition, previous_cats_str=previous_cats_str)
+
+    print(f"PROMPT: \n\t{prompt}\n")
 
     with get_openai_callback() as cb:
         llm = create_llm().with_structured_output(CategoryAnswer)
@@ -215,6 +240,7 @@ def categorize_next(item_description: str, nodes: list[Node], create_llm: Callab
     template = """
     With the given item and categories, determine which of the categories would contain the item.
     Choose only the number of the category which would contain the item, otherwise choose 'None of the above' from the list.
+    Choose the most specific category if multiple satisfy the condition above.
     
     Categories:
     {categories}
@@ -224,7 +250,7 @@ def categorize_next(item_description: str, nodes: list[Node], create_llm: Callab
     """.strip()
     
     prompt = ChatPromptTemplate.from_template(template)
-    prompt = prompt.format(categories={"\n* ".join(conditions)}, item=item_description)
+    prompt = prompt.format(categories={"\n ".join(conditions)}, item=item_description)
     
     with get_openai_callback() as cb:
         llm = create_llm().with_structured_output(CategoryChoice)
@@ -237,7 +263,7 @@ def categorize_next(item_description: str, nodes: list[Node], create_llm: Callab
     
     return choice_node, TokenCounts(prompt=cb.prompt_tokens, completion=cb.completion_tokens, total=cb.total_tokens)
 
-def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_llm: Callable[[], BaseChatModel], progress_bars: ProgressBars = None, completed_leaves=0) -> None:
+def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_llm: Callable[[], BaseChatModel], progress_bars: ProgressBars = None, completed_leaves=0) -> TokenCounts:
     """Mutates the tree; Optimizes the tree by creating new nodes where necessary to divide existing node children until the `max_children` is met
 
     Args:
@@ -248,20 +274,24 @@ def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_
         progress_bars (ProgressBars, optional): Optional progress bar wrapper to add progress information (highly recommended). Defaults to None.
         completed_leaves (int, optional): Internal value used to accumulate completed leaves. Defaults to 0.
     """
+    tokens = TokenCounts()
     # if the current node is a leaf then add to the counter and continue
     if root.is_leaf():
         completed_leaves += 1
         if progress_bars is not None:
             progress_bars.update_total_progress(completed_leaves)
-        return
+        return tokens
     # while the children of this node do not satsify the requirement
+    previous_cats = []
     while len(root.children) > max_children:
         print(f"Working on node '{root.condition}' with {len(root.children)} subcategories.")
         if progress_bars is not None:
             progress_bars.update_status(f"<b>Status:</b> Working on node '{root.condition}' with {len(root.children)} subcategories.") 
         
         # create new categories at this level by dividing existing ones
-        new_cats, token_counts = ask_model_category(root, embeddings=embeddings, create_llm=create_llm)
+        new_cats, token_counts = ask_model_category(root, embeddings=embeddings, create_llm=create_llm, previous_cats_for_retry=previous_cats)
+        tokens += token_counts
+        previous_cats.extend(new_cats.categories)
         
         if progress_bars is not None:
             progress_bars.increment_tokens(token_counts)
@@ -280,6 +310,7 @@ def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_
         n_categorized: int = 0
         for node in old_children:
             choice, token_counts = categorize_next(item_description=node.condition, nodes=[*root.children], create_llm=create_llm)
+            tokens += token_counts
             n_categorized += 1
             if progress_bars is not None:
                 progress_bars.update_batch_progress(n_categorized)
@@ -294,11 +325,17 @@ def optimize_tree(root: Node, max_children: int, embeddings: Embeddings, create_
                 
         print(f"Failed to categorize: {[u.condition for u in uncategorized]}")
         
+        for child in root.children:
+            if len(child.children) == 0:
+                root.children.remove(child)
+        
         root.add_children(uncategorized)
     
     # optimize the subtrees starting at each of the children of current node
     for child in root.children:
-        optimize_tree(root=child, max_children=max_children, create_llm=create_llm, embeddings=embeddings, progress_bars=progress_bars, completed_leaves=completed_leaves)
+        tokens += optimize_tree(root=child, max_children=max_children, create_llm=create_llm, embeddings=embeddings, progress_bars=progress_bars, completed_leaves=completed_leaves)
+        
+    return tokens
 
 def _correct_parent_refs(node: Node):
     """Makes sure children of the given node have a valid parent equal to the current node
