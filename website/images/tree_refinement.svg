@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19.29 -12.86 605.634 819.657" xmlns:bx="https://boxy-svg.com">
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="127.41" cy="176.691" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); paint-order: fill; fill: rgba(0, 131, 254, 0.263); stroke-width: 1px;" cx="187.925" cy="242.658" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="41.271" cy="318.984" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="100.423" cy="320.619" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="154.668" cy="320.074" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="217.093" cy="321.165" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 144.583 191.683 L 178.384 222.758"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 170.206 254.107 L 54.356 301.81"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 174.842 260.103 L 104.512 299.084"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px; transform-origin: 172.116px 281.637px 0px;" d="M 160.667 299.902 L 183.564 263.375" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 199.101 262.557 L 210.823 300.719"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="127.411" cy="245.353" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px; stroke-width: 1px;" cx="64.169" cy="245.899" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 127.137 197.922 L 127.137 223.546"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 111.327 191.38 L 65.531 223.546"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="114.778" cy="550.115" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(48, 217, 58, 0.404); stroke-width: 1px;" cx="175.293" cy="616.082" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="200.644" cy="757.011" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="142.037" cy="756.738" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="27.548" cy="754.013" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="85.612" cy="755.648" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 131.951 565.107 L 165.752 596.182"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="114.779" cy="618.777" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px; stroke-width: 1px;" cx="51.537" cy="619.323" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 114.505 571.346 L 114.505 596.97"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 98.695 564.804 L 52.899 596.97"/>
+  <ellipse style="stroke: rgb(255, 0, 0); fill: rgba(255, 0, 0, 0.333); stroke-width: 1px;" cx="72.663" cy="683.774" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(255, 0, 0); fill: rgba(255, 0, 0, 0.345); stroke-width: 1px;" cx="154.169" cy="682.899" rx="21.807" ry="21.535"/>
+  <rect x="0.426" y="724.664" width="227.341" height="62.696" style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-dasharray: 2px; stroke-width: 1px;"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 158.802 630.076 L 31.82 732.912"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 172.977 637.162 C 172.977 637.162 87.928 735.195 87.928 733.273"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="452.245" cy="556.75" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="512.76" cy="622.717" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="549.015" cy="759.011" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="492.589" cy="759.557" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="366.651" cy="759.285" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 131, 254); fill: rgba(99, 179, 243, 0.36); stroke-width: 1px;" cx="433.983" cy="757.649" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 469.418 571.742 L 503.219 602.817"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="452.246" cy="625.412" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px; stroke-width: 1px;" cx="389.004" cy="625.958" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 451.972 577.981 L 451.972 603.605"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 436.162 571.438 L 390.366 603.605"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745); stroke-width: 1px;" cx="410.13" cy="690.41" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(48, 217, 58); fill: rgba(146, 234, 143, 0.745); stroke-width: 1px;" cx="491.636" cy="693.136" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 496.269 636.711 L 413.401 668.876"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 510.444 643.798 C 510.444 643.798 493.816 671.602 493.816 671.057"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 396.773 707.947 L 372.785 738.205"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 492.725 714.761 L 492.725 736.842"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 476.37 708.22 L 434.118 735.751"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 509.081 707.129 L 547.244 737.114"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="190.63" y="27.927">Tree Refinement</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; stroke-width: 1px;" x="47.768" y="81.588">Redefine Descriptions</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; stroke-width: 1px;" x="384.719" y="78.985">Find Duplicates</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; stroke-width: 1px;" x="44.04" y="471.246">Combine Duplicates</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; stroke-width: 1px;" x="397.653" y="470.134">Create New Tree</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="249.693" y="372.73" transform="matrix(1, 0, 0, 1, -132.243027, 116.65229)">Add duplicates under a new, blank parent.<tspan x="249.6929931640625" dy="1em">​</tspan>Then pick a new name like above.<tspan x="249.6929931640625" dy="1em">​</tspan>Delete the old parents and add<tspan x="249.6929931640625" dy="1em">​</tspan>all children under new node.</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="553.905" y="368.975" transform="matrix(1, 0, 0, 1, -99.722145, 118.005981)">Treat the new node as a subtree<tspan x="553.905029296875" dy="1em">​</tspan>and run creation for that<tspan x="553.905029296875" dy="1em">​</tspan>subtree.</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle; stroke-width: 1px;" x="438.22" y="98.207">Identify duplicates at each level</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 10px; white-space: pre; text-anchor: middle;" x="252.964" y="92.961" transform="matrix(1, 0, 0, 1, -127.4189, 7.75906)">From the bottom up, choose<tspan x="252.96400451660156" dy="1em">​</tspan>category names based on actual<tspan x="252.96400451660156" dy="1em">​</tspan>contents after creation.</text>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131);" d="M 257.207 224.46 L 298.095 223.915"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); stroke-width: 1px; transform-origin: 323.634px 112.769px 0px;" transform="matrix(-0.000303, 1, -1, -0.000303, -14.498478, 111.146928)"/>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgba(131, 131, 131, 0);" d="M 259.523 637.405 L 300.411 636.86"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); stroke-width: 1px; transform-origin: 323.634px 112.769px 0px;" transform="matrix(-0.000303, 1, -1, -0.000303, -12.18256, 524.092035)"/>
+  <path style="stroke-width: 4px; stroke-linecap: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); transform-origin: 295.916px 347.248px 0px;" d="M 264.703 347.792 L 305.591 347.247" transform="matrix(-0.696745, 0.717319, -0.717319, -0.696745, 0, 0)"/>
+  <path d="M 323.634 102.276 L 335.902 123.262 L 311.365 123.262 L 323.634 102.276 Z" bx:shape="triangle 311.365 102.276 24.537 20.986 0.5 0 1@0d2006f5" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(131, 131, 131); fill: rgb(131, 131, 131); stroke-width: 1px; transform-origin: 323.64px 133.486px 0px;" transform="matrix(-0.717108, -0.696962, 0.696962, -0.717108, -27.723706, 213.762387)"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 15px; white-space: pre; text-anchor: middle;" x="415.429" y="735.518" transform="matrix(1, 0, 0, 1, -125.160942, -328.421356)">If Any Duplicates Were Found,<tspan x="415.4289855957031" dy="1em">​</tspan>For Each Duplicate Set</text>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="438.906" cy="173.54" rx="21.807" ry="21.535"/>
+  <ellipse style="paint-order: fill; fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="499.421" cy="239.507" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(255, 0, 0); fill: rgba(255, 0, 0, 0.33); stroke-width: 1px;" cx="352.767" cy="315.833" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(255, 0, 0); fill: rgba(255, 0, 0, 0.337); stroke-width: 1px;" cx="411.919" cy="317.468" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="466.164" cy="316.923" rx="21.807" ry="21.535"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(216, 216, 216); stroke-width: 1px;" cx="528.589" cy="318.014" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 456.079 188.532 L 489.88 219.607"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 481.702 250.956 L 365.852 298.659"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 486.338 256.952 L 416.008 295.933"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px; transform-origin: 483.612px 278.486px 0px;" d="M 472.163 296.751 L 495.06 260.224" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 510.597 259.406 L 522.319 297.568"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 2px; stroke-width: 1px;" cx="438.907" cy="242.202" rx="21.807" ry="21.535"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill; stroke-dasharray: 2px; stroke-width: 1px;" cx="375.665" cy="242.748" rx="21.807" ry="21.535"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 438.633 194.771 L 438.633 220.395"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 422.823 188.229 L 377.027 220.395"/>
+  <rect x="324.98" y="288.137" width="113.885" height="56.717" style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-dasharray: 4px; stroke-width: 1px;"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" d="M 180.697 637.188 C 180.697 637.188 142.462 737.975 142.462 735.998"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px; transform-origin: 194.665px 683.682px 0px;" d="M 198.73 736.478 C 198.73 736.478 190.6 628.807 190.6 630.918" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
+</svg>

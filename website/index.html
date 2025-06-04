@@ -87,7 +87,8 @@
                         <li>
                             <b>Availability</b>
                             <p>
-                                Many schemas existing for product classification and standardization. For this project I used UNSPSC codes but there are many other private and public sets of labels to consider.
+                                Many schemas existing for product classification and standardization. For this project I originally used UNSPSC codes but there are many other private and public sets of labels to consider. 
+                                I then switched to more typical Amazon product categories.
                                 Data that has been tagged for training is difficult to obtain, especially for specific schemas. A quick or lengthy Google search will show that data like this is rarely publicly available if at all.
                                 This means that companies and individuals will need to invest in maintaining their own training data across industry changes.
                             </p>
@@ -159,8 +160,12 @@
 
     <h2>Data</h2>
     <p>
-        For the labels, I chose the <a href="https://www.ungm.org/public/unspsc">UNSPSC codes</a> available <a href="https://data.ok.gov/dataset/unspsc-codes">here</a>.
+        For the labels in part one, I chose the <a href="https://www.ungm.org/public/unspsc">UNSPSC codes</a> available <a href="https://data.ok.gov/dataset/unspsc-codes">here</a>.
         There are over 70,000 labels divided into a 4 level heirarchy.
+    </p>
+    <p>
+        For the labels in part two, I chose the Amazon categories included with the classification dataset on <a href="https://www.kaggle.com/datasets/asaniczka/amazon-products-dataset-2023-1-4m-products">Kaggle</a>.
+        This allowed me to iterate faster with around 200 labels and these categories fit the data better.
     </p>
     <p>
         For the items to classify, I chose some Amazon products available on <a href="https://www.kaggle.com/datasets/asaniczka/amazon-products-dataset-2023-1-4m-products">Kaggle</a>.
@@ -168,6 +173,9 @@
     </p>
 
     <h2>Data Cleaning</h2>
+    <p>
+        <b>Part One</b>
+    </p>
     <p>
         While one advantage of LLM's is that they are trained on the kind of text that occurs naturally on the internet, there was still cleaning to do, specifically in the labels. The UNSPSC codes came with over 70,000 labels spanning all kinds of products and services but
         there were many that woud not be used when applied to an Amazon products dataset for classification. In order to make iteration faster, I chose to remove labels that were out of scope:
@@ -192,6 +200,12 @@
             </li>
         </ul>
         After removing out-of-scope or under-utilized labels I was left with around 31,000 labels which made iterations possible in my timeframe.
+    </p>
+    <p>
+        <b>Part Two</b>
+    </p>
+    <p>
+        Not much cleaning was needed and I mainly focused on the tree algorithm itself.
     </p>
 
     <h2>Approach</h2>
@@ -221,7 +235,7 @@
                     Create a leaf node for every label.
                 </li>
                 <li>
-                    If a heirarchy already exists within the labels dataset (they do in the UNSPSC codes), then create parent nodes according to each level.
+                    If a heirarchy already exists within the labels dataset (they do in the UNSPSC codes but not the Amazon categories), then create parent nodes according to each level.
                 </li>
             </ul>
         </p>
@@ -251,6 +265,36 @@
                 </li>
             </ul>
         </p>
+        <b>Refinement</b>
+        <p>
+            Using a tree created with the algorithm above, perform the following steps until no duplicates are found:
+            <ul>
+                <li>
+                    Determine new category descriptions by going through the nodes depth-first and determining a new category name based on the children of each node.
+                </li>
+                <li>
+                    Identify duplicate nodes by identifying sets of 2 or more categories with significant overlap for each set of children.
+                </li>
+                <li>
+                    For each set of duplicates:
+                    <ul>
+                        <li>
+                            Combine all of the duplicates' children under a new, blank parent.
+                        </li>
+                        <li>
+                            Rename the new node using the same algorithm as above.
+                        </li>
+                        <li>
+                            Use the new node as a subtree root and perform the tree creation algorithm on this node.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Repeat this process if duplicates were found.
+                </li>
+            </ul>
+
+        </p>
         <b>Classification</b>
         <p>
             Using a tree created with the algorithm above and the set of items to classify, perform classifications for each item using the following process:
@@ -276,14 +320,18 @@
 
     <h2>Algorithm Visualizations</h2>
     <div class="svg-container">
-        <!-- Insert your large SVG here -->
         <img src="images/tree_creation.svg" alt="Tree Creation">
     </div>
 
     <div class="svg-container">
-        <!-- Insert another large SVG here -->
+        <img src="images/tree_refinement.svg" alt="Tree Refinement">
+    </div>
+
+    <div class="svg-container">
         <img src="images/classification.svg" alt="Classification">
     </div>
+
+
 
     <h2>Tree Visualization</h2>
     <p>This is a partial visualization of the tree after the algorithm above. I cannot visualize much of the original tree due to the number of children at each level. Made using Plotly.</p>
@@ -351,7 +399,7 @@
         The models were run on local hardware using Ollama and interacted with through LangChain.
     </p>
     <p>
-        <b>Tree Creation</b>
+        <b>Tree Creation V1</b>
         <ul>
             <li>
                 Total Tokens: 6 million
@@ -375,6 +423,35 @@
         <p>
             While the cost is a rough estimation it mainly shows that the compute costs of running the LLM are negligible.
         </p>
+
+        <b>Tree Creation V1</b>
+        <ul>
+            <li>
+                Total Tokens: 200 thousand
+            </li>
+            <li>
+                Prompt Tokens (Input): 120 thousand
+            </li>
+            <li>
+                Completion Tokens (Output): 80 thousand
+            </li>
+            <li>
+                Time: 1.5 hours
+            </li>
+        </ul>
+        <p>
+            The split of input/output tokens for the V2 model were slightly different because the model was given a reasoning output field for all of its completions.
+        </p>
+        <p>
+            Qwen is difficult to calculate costs for since it is not as common on cloud platforms. I will use GPT 4o-mini and LLama 70B as a rough estimate due to the small size of Qwen.
+        </p>
+        <p>
+            Token Cost: About $0.07 depending on hosting details
+        </p>
+        <p>
+            While the cost is a rough estimation it mainly shows that the compute costs of running the LLM are negligible.
+        </p>
+
 
         <b>Classification</b>
         <p>
@@ -409,7 +486,7 @@
             </tr>
             <tr>
                 <td>
-                    Standard
+                    Standard V1
                 </td>
                 <td>
                     237,000
@@ -435,7 +512,7 @@
             </tr>
             <tr>
                 <td>
-                    Adjusted
+                    Refined V1
                 </td>
                 <td>
                     212,000
@@ -457,6 +534,58 @@
                 </td>
                 <td>
                     $0.0004 - $0.0015
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Standard V2
+                </td>
+                <td>
+                    100,000
+                </td>
+                <td>
+                    66,000
+                </td>
+                <td>
+                    34,000
+                </td>
+                <td>
+                    21 min
+                </td>
+                <td>
+                    13 sec
+                </td>
+                <td>
+                    $0.02 - $0.07
+                </td>
+                <td>
+                    $0.0002 - $0.0007
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Refined V2
+                </td>
+                <td>
+                    121,000
+                </td>
+                <td>
+                    76,000
+                </td>
+                <td>
+                    45,000
+                </td>
+                <td>
+                    26 min
+                </td>
+                <td>
+                    15 sec
+                </td>
+                <td>
+                    $0.02 - $0.07
+                </td>
+                <td>
+                    $0.0002 - $0.0007
                 </td>
             </tr>
         </table>
@@ -488,7 +617,7 @@
             </tr>
             <tr>
                 <td>
-                    Standard
+                    Standard V1
                 </td>
                 <td>
                     56%
@@ -502,7 +631,7 @@
             </tr>
             <tr>
                 <td>
-                    Adjusted
+                    Refined V1
                 </td>
                 <td>
                     49%
@@ -514,10 +643,38 @@
                     33%
                 </td>
             </tr>
+            <tr>
+                <td>
+                    Standard V2
+                </td>
+                <td>
+                    44%
+                </td>
+                <td>
+                    46%
+                </td>
+                <td>
+                    10%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Refined V2
+                </td>
+                <td>
+                    54%
+                </td>
+                <td>
+                    14%
+                </td>
+                <td>
+                    32%
+                </td>
+            </tr>
         </table>
     </p>
     <p>
-        The results show there are two major issues. The accuracy is quite poor and the number of items that could not be classified is much higher than it would need to be to be considered reliable.
+        The results from V1 with UNSPSC codes show there are two major issues. The accuracy is quite poor and the number of items that could not be classified is much higher than it would need to be to be considered reliable.
     </p>
     <p>
         Determining accuracy, even for 100 items was full of issues. Although UNSPSC codes are used for general product classification, there were many scenarios they did not work well for classifying Amazon products.
@@ -538,11 +695,23 @@
         UNSPSC is intended for businesses to label things they produce or procure, where intent is obvious. With a website like Amazon that caters to businesses and individuals indiscriminately, it is challenging or impossible to find the intention behind the product.
         In many scenarios including the examples above, the two trees chose different classifications that both seemed equally correct.
     </p>
+    <p>
+        The results from V2 with Amazon categories are interesting. The improved model had a higher accuracy on the test data but the number of unclassified items rose. This is could be for a number of reasons but more tests are required to figure out exactly what is happening here.
+        Results from V2 performed very similarly to V1 so many of the points above probably still apply.
+    </p>
 
     <h2>Conclusion</h2>
     <p>
         While the results for this are not ready for real world application, I would like to pursue this further to dive into the challenges and identify more solutions to the implementation issues above. Due to challenges matching the labels to the chosen data, even manually, it was difficult to evaluate objectively.
-        In regards to my objective, the algorithm listed above is not feasible and cannot be used as a replacement for existing solutions.
+        In regards to my objective, the algorithm listed above is not feasible and cannot be used as a replacement for existing solutions. After improving the algorithm further these results did not really change. There are a lot of challenges with this approach and it goes to show many of the advantages of trained models that are lost here.
+    </p>
+
+    <h2>
+        Afterthoughts
+    </h2>
+    <p>
+        I worked on this project because of how strange of an experience working with large language models can be. It is a relatively new concept to be able to use an out-of-the-box model for whatever your use case is without needing to train or fine-tune in most cases. This project attempted to approach a standard machine learning problem without training any models. Instead, it focused on a very novel technique to use a large language model as a component of a more standard algorithm.
+        The results from this were somewhat clear. Even if the model had worked, far more time went into the design of this model than would've been required for more traditional approaches.
     </p>
 </section>
 

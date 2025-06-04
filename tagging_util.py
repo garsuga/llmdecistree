@@ -1,8 +1,8 @@
 import pandas as pd
 
 if __name__ == "__main__":
-    file_name = "classifications_improved_tree.csv"
-    df = pd.read_csv(file_name)
+    file_name = "classifications_v4_improved.csv"
+    df = pd.read_csv(f"classification_results/{file_name}")
     print(df.columns)
     statuses = []
     flags = []
@@ -32,6 +32,6 @@ if __name__ == "__main__":
         flags.append(user_flag)
         
     df["status"] = statuses
-    df.to_csv(f"labeled_{file_name}")
+    df.to_csv(f"classification_results/labeled_{file_name}")
             
     

@@ -1,7 +1,7 @@
 import pandas as pd
 
 if __name__ == "__main__":
-    file_name = "labeled_classifications_cleaned_tree.csv"
+    file_name = "classification_results/labeled_classifications_v4_improved.csv"
     df = pd.read_csv(file_name)
     print(df.columns)
     
@@ -33,3 +33,15 @@ if __name__ == "__main__":
 # Percent Correct: 56.00%
 # Percent Incorrect: 15.00%
 # Percent Unanswered: 29.00%
+
+
+# Results for labeled_classifications_v4.csv
+# Percent Correct: 44.00%
+# Percent Incorrect: 46.00%
+# Percent Unanswered: 10.00%
+
+
+# Results for classification_results/labeled_classifications_v4_improved.csv
+# Percent Correct: 54.00%
+# Percent Incorrect: 14.00%
+# Percent Unanswered: 32.00%
